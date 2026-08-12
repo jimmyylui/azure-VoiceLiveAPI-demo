@@ -6,7 +6,7 @@ A browser voice and avatar client for an existing Microsoft Foundry agent. The F
 
 1. Confirm the agent works with Voice mode in the Foundry Agent playground.
 2. Assign your local identity the **Foundry User** role on the Foundry resource.
-3. Copy `.env.example` to `.env` and set `VOICELIVE_ENDPOINT`, `AGENT_NAME`, and `PROJECT_NAME`.
+3. Copy `env.example` to `.env` and set `VOICELIVE_ENDPOINT`, `AGENT_NAME`, and `PROJECT_NAME`.
 4. Ensure the resource region supports avatars: Southeast Asia, North Europe, West Europe, Sweden Central, South Central US, East US 2, or West US 2.
 
 For cross-resource setups, assign the Voice Live resource managed identity the **Foundry User** role on the agent resource and set the two cross-resource variables in `.env`.
