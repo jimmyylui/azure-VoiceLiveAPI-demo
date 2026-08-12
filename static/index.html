@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    (() => {
+      const param = new URLSearchParams(window.location.search).get("scoutTheme");
+      const theme = param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+  <link rel="stylesheet" href="/style.css">
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" integrity="sha384-uTYyvsSSUZeaPhb5RbKlQa0zY/WpX/QHfvg2mczXyBQOpkWPEDy9lczyp+w7SKXu" crossorigin="anonymous" defer></script>
+  <script src="/app.js" defer></script>
+  <title>Foundry Agent Avatar</title>
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <div class="identity">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <div><strong id="agent-name">Ricoh Avatars</strong><span>Live avatar</span></div>
+      </div>
+      <div class="connection"><span id="status-dot"></span><span id="status-label">Offline</span></div>
+    </header>
+
+    <section class="stage" aria-label="Agent avatar">
+      <div class="video-frame">
+        <div id="video-container"></div>
+        <img class="company-logo" src="/ricoh-lock-up.svg" alt="Ricoh">
+      </div>
+      <div class="stage-shade"></div>
+      <div id="caption" aria-live="polite"></div>
+    </section>
+
+    <section class="controls" aria-label="Conversation controls">
+      <button id="session-button" class="primary"><i data-lucide="phone"></i><span>Start conversation</span></button>
+      <button id="mic-button" class="icon-button" disabled aria-label="Turn microphone on" title="Turn microphone on"><i data-lucide="mic-off"></i></button>
+      <button id="captions-button" class="icon-button active" aria-label="Toggle captions" title="Toggle captions"><i data-lucide="captions"></i></button>
+    </section>
+
+    <section class="text-bar">
+      <input id="text-input" type="text" placeholder="Type a message" aria-label="Message" disabled>
+      <button id="send-button" class="icon-button" disabled aria-label="Send message" title="Send message"><i data-lucide="send"></i></button>
+    </section>
+    <p id="error" role="alert"></p>
+  </main>
+</body>
+</html>
